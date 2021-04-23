@@ -7,14 +7,16 @@ import static java.util.Collections.nCopies;
 import java.util.*;
 
 public class Converter {
-	public static String romanFromNumber(int number) {
+	public static String romanFromNumber(int number) throws NumberFormatException {
+		if (number <= 0)
+			throw new NumberFormatException("Negative or zero cannot be written in Roman format");
 		return join("", nCopies(number, "I")).replace("IIIII", "V").replace("IIII", "IV")
 				.replace("VV", "X").replace("VIV", "IX").replace("XXXXX", "L").replace("XXXX", "XL").replace("LL", "C")
 				.replace("LXL", "XC").replace("CCCCC", "D").replace("CCCC", "CD").replace("DD", "M")
 				.replace("DCD", "CM");
 	}
 
-	public static int romanToNumber(String romanNumber) {
+	public static int romanToNumber(String romanNumber) throws NumberFormatException{
 		int decimal = 0;
 		int lastNumber = 0;
 		String romanNumeral = romanNumber.toUpperCase();
@@ -56,7 +58,10 @@ public class Converter {
 				decimal = processDecimal(1, lastNumber, decimal);
 				lastNumber = 1;
 				break;
-			}
+			
+			default:
+				throw new NumberFormatException("Wrong Roman number format");
+			}	
 		}
 		return decimal;
 	}
@@ -75,3 +80,4 @@ public class Converter {
 	
 
 }
+

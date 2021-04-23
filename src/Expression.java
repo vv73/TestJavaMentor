@@ -27,7 +27,6 @@ public class Expression {
 
 		case "-":
 			return left.subtruct(right);
-
 		}
 		return null;
 	}
