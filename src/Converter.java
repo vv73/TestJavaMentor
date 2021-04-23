@@ -1,11 +1,14 @@
 /*
- * Roman - Arabic
+ * Арабские-римские
  */
+import static java.lang.String.join;
+import static java.util.Collections.nCopies;
+
 import java.util.*;
 
 public class Converter {
 	public static String romanFromNumber(int number) {
-		return String.join("", Collections.nCopies(number, "I")).replace("IIIII", "V").replace("IIII", "IV")
+		return join("", nCopies(number, "I")).replace("IIIII", "V").replace("IIII", "IV")
 				.replace("VV", "X").replace("VIV", "IX").replace("XXXXX", "L").replace("XXXX", "XL").replace("LL", "C")
 				.replace("LXL", "XC").replace("CCCCC", "D").replace("CCCC", "CD").replace("DD", "M")
 				.replace("DCD", "CM");

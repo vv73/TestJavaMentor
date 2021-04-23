@@ -1,3 +1,6 @@
+/*
+ * Парсер простейших выражений
+ */
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

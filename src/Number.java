@@ -1,5 +1,5 @@
 /*
- * Число 
+ * Р§РёСЃР»Рѕ
  */
 public class Number {
 	int num, den = 1;
